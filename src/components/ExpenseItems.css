@@ -1,0 +1,13 @@
+.expense-item{
+    display:flex;
+    width:100%
+}
+.expense-item__description{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.expense-item__price{
+    font-weight: 800;
+    text-align: center;
+}
