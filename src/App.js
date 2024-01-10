@@ -1,7 +1,7 @@
 import './App.css';
 import ExpenseItems from './components/ExpenseItems';
 
-function App() {
+const App=()=>{
   const expenses = [
     {
       date:new Date('2023-01-01'),
@@ -31,7 +31,7 @@ function App() {
       date: new Date('2023-05-05'),
       expense: 'Healthcare',
       expenseLocation: 'Pharmacy',
-      price: 60
+      amount: 60
     }
   ];
   
