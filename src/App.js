@@ -4,31 +4,31 @@ import ExpenseItems from './components/ExpenseItems';
 function App() {
   const expenses = [
     {
-      date: '2023-01-01',
+      date:new Date('2023-01-01'),
       expense: 'Groceries',
       expenseLocation: 'Supermarket',
-      price: 50
+      amount: 50
     },
     {
-      date: '2023-02-15',
+      date:new Date('2023-02-15'),
       expense: 'Dinner',
       expenseLocation: 'Restaurant',
-      price: 30
+      amount: 30
     },
     {
-      date: '2023-03-10',
+      date: new Date('2023-03-10'),
       expense: 'Transportation',
       expenseLocation: 'Gas Station',
-      price: 40
+      amount: 40
     },
     {
-      date: '2023-04-22',
+      date: new Date('2023-04-22'),
       expense: 'Entertainment',
       expenseLocation: 'Movie Theatre',
-      price: 25
+      amount: 25
     },
     {
-      date: '2023-05-05',
+      date: new Date('2023-05-05'),
       expense: 'Healthcare',
       expenseLocation: 'Pharmacy',
       price: 60
@@ -39,7 +39,7 @@ function App() {
     <div className="App">
       {expenses.map((ele)=>{
 
-        return (<ExpenseItems date={ele.date} expense={ele.expense} location={ele.expenseLocation} price={ele.price}></ExpenseItems>)
+        return (<ExpenseItems date={ele.date} expense={ele.expense} location={ele.expenseLocation} amount={ele.amount}></ExpenseItems>)
       })}
     </div>
   );

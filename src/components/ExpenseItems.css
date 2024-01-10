@@ -8,12 +8,7 @@
     margin-bottom: 10px;
     background-color: #333;
     color:white;
-  }
-  
-  .expense-item > div:first-child {
-    font-weight: bold;
-    margin-right: 10px;
-    align-items: center;
+    box-shadow:2px 2px 4px 2px #333;
   }
   
   .expense-item__description {
@@ -45,4 +40,5 @@
     margin: 5px 0;
     color: #888;
   }
+  
   
