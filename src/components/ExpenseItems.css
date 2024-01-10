@@ -1,13 +1,48 @@
-.expense-item{
-    display:flex;
-    width:100%
-}
-.expense-item__description{
+.expense-item {
     display: flex;
-    justify-content: space-around;
-    text-align: center;
-}
-.expense-item__price{
-    font-weight: 800;
-    text-align: center;
-}
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #333;
+    color:white;
+  }
+  
+  .expense-item > div:first-child {
+    font-weight: bold;
+    margin-right: 10px;
+    align-items: center;
+  }
+  
+  .expense-item__description {
+    display:flex;
+    justify-content: space-between;
+    flex: 1;
+    
+  }
+  
+  .expense-item__description h2 {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+    margin-top: 0.35rem;
+    margin-left: 2rem;
+  }
+  
+  .expense-item__price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: purple;
+    color:white;
+    border-radius: 10px;
+    padding: 5px;
+
+  }
+  
+  .expense-item__description p {
+    margin: 5px 0;
+    color: #888;
+  }
+  
