@@ -1,4 +1,5 @@
 import './App.css';
+import AddExpense from './components/Expenses/AddExpenses';
 import ExpenseItems from './components/Expenses/ExpenseItems';
 
 const App=()=>{
@@ -37,6 +38,7 @@ const App=()=>{
   
   return (
     <div className="App">
+      <AddExpense></AddExpense>
       {expenses.map((ele)=>{
 
         return (<ExpenseItems date={ele.date} expense={ele.expense} location={ele.expenseLocation} amount={ele.amount}></ExpenseItems>)
