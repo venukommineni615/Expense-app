@@ -38,7 +38,7 @@ const App=()=>{
   
   return (
     <div className="App">
-      <AddExpense></AddExpense>
+      <AddExpense expenses={expenses}></AddExpense>
       {expenses.map((ele)=>{
 
         return (<ExpenseItems date={ele.date} expense={ele.expense} location={ele.expenseLocation} amount={ele.amount}></ExpenseItems>)
