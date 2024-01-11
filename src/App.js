@@ -2,6 +2,7 @@ import './App.css';
 import React, {useState} from "react"
 import AddExpense from './components/Expenses/AddExpenses';
 import ExpenseItems from './components/Expenses/ExpenseItems';
+import ExpenseFilter from './components/FilterComponents/ExpenseFilter';
 
 const App=()=>{
  
@@ -44,10 +45,15 @@ const App=()=>{
         return [...prevExpenses,newExpense]
       })
    }
+   const [filterYear,setFilterYear]=useState('2020')
+   const dropdownYear=(selectedYear)=>{
+    setFilterYear(selectedYear)
+   }
    
   return (
     <div className="App">
       <AddExpense newExpense={appendExpense}></AddExpense>
+      <ExpenseFilter selected={filterYear} changeFilter={dropdownYear}></ExpenseFilter>
       {myexpenses.map((ele)=>{
 
         return (<ExpenseItems date={ele.date} expense={ele.expense} location={ele.expenseLocation} amount={ele.amount}></ExpenseItems>)
