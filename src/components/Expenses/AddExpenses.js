@@ -1,41 +1,48 @@
 import React, {useState} from "react"
 import "./AddExpense.css"
-const AddExpense=()=>{
-    const [price,setPrice]=useState(0)
+const AddExpense=(props)=>{
+    const [price,setPrice]=useState("")
     const [location,setLocation]=useState("")
     const [date,setDate]=useState("")
-    const [title,setTitle]=useState("")
     const [expense,setExpense]=useState("")
     const dataSubmitted=(event)=>{
         event.preventDefault()
-        
-        // setTitle(event.target.title.value)
-        // setDate(event.target.date.value)
-        // setExpense(event.target.expense.value)
-        // setLocation(event.target.location.value)
-        // setPrice(event.target.price.value)
-        console.log(event.target.title.value)
-        console.log(event.target.mydate.value)
-        console.log(event.target.expense.value)
-        console.log(event.target.location.value)
-        console.log(event.target.price.value)
+        props.newExpense({
+            id:Math.random(),
+            date:new Date(event.target.date.value),
+            expense: event.target.expense.value,
+            expenseLocation: event.target.location.value,
+            amount: event.target.price.value
+        })
+        setDate("")
+        setExpense("")
+        setLocation("")
+        setPrice("")
 
     }
-    const printValue=(event)=>{
-        console.log(event.target.value)
+    const printDate=(event)=>{
+        setDate(event.target.value)
+    }
+    const printExpense=(event)=>{
+        setExpense(event.target.value)
+    }
+    const printLocation=(event)=>{
+        setLocation(event.target.value)
+    }
+    const printPrice=(event)=>{
+        setPrice(event.target.value)
     }
     return(
         <form onSubmit={dataSubmitted}>
             <label htmlFor="date">Date:</label>
-            <input type="date" id="date" name="mydate" onChange={printValue}required></input>
+            <input type="date" id="date" name="mydate" onChange={printDate}required value={date}></input>
             <label htmlFor="expense">Expense:</label>
-            <input type="text" id="expense" name="expense" onChange={printValue} required></input>
+            <input type="text" id="expense" name="expense" onChange={printExpense} value={expense} required></input>
             <label htmlFor="location">Location:</label>
-            <input type="text" id="location" name='location' onChange={printValue} required></input>
+            <input type="text" id="location" name='location' onChange={printLocation} value={location} required></input>
             <label htmlFor="price">Price:</label>
-            <input type="number" id="price" name="price" onChange={printValue} required min="1"></input>
+            <input type="number" id="price" name="price" onChange={printPrice} value={price} required min="1"></input>
             <button type="submit" >Submit</button>
-
         </form>
     )
 }

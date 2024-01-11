@@ -1,8 +1,10 @@
 import './App.css';
+import React, {useState} from "react"
 import AddExpense from './components/Expenses/AddExpenses';
 import ExpenseItems from './components/Expenses/ExpenseItems';
 
 const App=()=>{
+ 
   const expenses = [
     {
       date:new Date('2023-01-01'),
@@ -35,11 +37,18 @@ const App=()=>{
       amount: 60
     }
   ];
-  
+  let [myexpenses, setMyexpenses]=useState(expenses)
+   const appendExpense=(newExpense)=>{
+      expenses.push(newExpense)
+      setMyexpenses((prevExpenses)=>{
+        return [...prevExpenses,newExpense]
+      })
+   }
+   
   return (
     <div className="App">
-      <AddExpense expenses={expenses}></AddExpense>
-      {expenses.map((ele)=>{
+      <AddExpense newExpense={appendExpense}></AddExpense>
+      {myexpenses.map((ele)=>{
 
         return (<ExpenseItems date={ele.date} expense={ele.expense} location={ele.expenseLocation} amount={ele.amount}></ExpenseItems>)
       })}
