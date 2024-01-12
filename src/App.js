@@ -37,7 +37,7 @@ const App=()=>{
     },
     {
       id:Math.random(),
-      date: new Date('2019-05-05'),
+      date: new Date('2020-05-05'),
       expense: 'Healthcare',
       expenseLocation: 'Pharmacy',
       amount: 60
@@ -57,15 +57,22 @@ const App=()=>{
    let filterExpenseList=expenses.filter((ele)=>{
       return ele.date.getFullYear().toString() === filterYear;
   })
+  let expenseUI=<p style={{color:"white"}}>No expenses are found</p>
+  if(filterExpenseList.length>0){
+
+    expenseUI=filterExpenseList.map((ele)=>{
+
+      return (<ExpenseItems key={ele.id} date={ele.date} expense={ele.expense} location={ele.expenseLocation} amount={ele.amount}></ExpenseItems>)
+    })
+  }
   console.log(filterExpenseList)
   return (
     <div className="App">
       <AddExpense newExpense={appendExpense}></AddExpense>
       <ExpenseFilter selected={filterYear} changeFilter={dropdownYear}></ExpenseFilter>
-      {filterExpenseList.map((ele)=>{
-
-        return (<ExpenseItems key={ele.id} date={ele.date} expense={ele.expense} location={ele.expenseLocation} amount={ele.amount}></ExpenseItems>)
-      })}
+      
+      {expenseUI}
+      {filterExpenseList.length===1 && <p style={{color:"white"}}>Only single Expense here. Please add more...</p>}
     </div>
   );
 }
