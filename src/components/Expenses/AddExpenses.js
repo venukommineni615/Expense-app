@@ -35,7 +35,7 @@ const AddExpense=(props)=>{
     return(
         <form onSubmit={dataSubmitted}>
             <label htmlFor="date">Date:</label>
-            <input type="date" id="date" name="mydate" onChange={printDate}required value={date}></input>
+            <input type="date" id="date" name="mydate" onChange={printDate}required value={date} min="2019-01-01" max="2022-12-31"></input>
             <label htmlFor="expense">Expense:</label>
             <input type="text" id="expense" name="expense" onChange={printExpense} value={expense} required></input>
             <label htmlFor="location">Location:</label>
