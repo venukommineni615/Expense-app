@@ -1,8 +1,9 @@
 import './App.css';
 import React, {useState} from "react"
-import AddExpense from './components/Expenses/AddExpenses';
+import AddExpense from './components/FormComponents/AddExpenses';
 import FilteredList from './components/FilterComponents/FilteredList';
 import ExpenseFilter from './components/FilterComponents/ExpenseFilter';
+import FormOpener from "./components/FormComponents/FormOpener.js"
 
 const expenses = [
   {
@@ -42,6 +43,7 @@ const expenses = [
   }
 ];
 const App=()=>{
+  const [toggle,setToggle]=useState(false)
   const [myexpenses, setMyexpenses]=useState(expenses)
   const appendExpense=(newExpense)=>{
       setMyexpenses((prevExpenses)=>{
@@ -55,11 +57,17 @@ const App=()=>{
    let filterExpenseList=myexpenses.filter((ele)=>{
       return ele.date.getFullYear().toString() === filterYear;
   })
+  const opener=()=>{
+    setToggle((prev)=>{
+      return !prev
+    })
+  }
   
   return (
     <div className="App">
-      <AddExpense newExpense={appendExpense}></AddExpense>
-      <ExpenseFilter selected={filterYear} changeFilter={dropdownYear}></ExpenseFilter>
+      {toggle==true && <AddExpense newExpense={appendExpense} open={opener}></AddExpense>}
+      {toggle==false && <FormOpener open={opener}></FormOpener>}
+      <ExpenseFilter selected={filterYear}  changeFilter={dropdownYear}></ExpenseFilter>
       <FilteredList renderList={filterExpenseList}></FilteredList>
       {filterExpenseList.length===1 && <p style={{color:"white"}}>Only single Expense here. Please add more...</p>}
     </div>
