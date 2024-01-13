@@ -37,23 +37,28 @@ const AddExpense=(props)=>{
     return(
        
         <form onSubmit={dataSubmitted}>
-        <div class="form-row">
+        <div className="form-row">
           <label htmlFor="date">Date:</label>
           <input type="date" id="date" name="mydate" onChange={printDate} required value={date} min="2019-01-01" max="2022-12-31"></input>
         </div>
-        <div class="form-row">
+        <div className="form-row">
           <label htmlFor="expense">Expense:</label>
           <input type="text" id="expense" name="expense" onChange={printExpense} value={expense} required></input>
         </div>
-        <div class="form-row">
+        <div className="form-row">
           <label htmlFor="location">Location:</label>
           <input type="text" id="location" name='location' onChange={printLocation} value={location} required></input>
         </div>
-        <div class="form-row">
+        <div className="form-row">
           <label htmlFor="price">Price:</label>
           <input type="number" id="price" name="price" onChange={printPrice} value={price} required min="1"></input>
         </div>
-        <button type="submit">Submit</button>
+        <div>
+          <button type="button" onClick={props.open}>Cancel</button>
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
       </form>
       
     )

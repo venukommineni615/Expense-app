@@ -1,15 +1,20 @@
 .filterContainer{
     display: flex;
-    flex-direction: column;
-    width: fit-content;
-    margin: auto;
+    background-color: #333;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding:0.5rem 1rem;
+    align-items: center;
 }
 .filterLabel{
     align-self: center;
 }
 .filter{
-    margin-bottom: 1rem;
-    padding: 1rem;
+    
+    padding: 0.5rem;
     background-color: #333;
     border: 1px solid white;
     color:white;

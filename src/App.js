@@ -4,7 +4,7 @@ import AddExpense from './components/FormComponents/AddExpenses';
 import FilteredList from './components/FilterComponents/FilteredList';
 import ExpenseFilter from './components/FilterComponents/ExpenseFilter';
 import FormOpener from "./components/FormComponents/FormOpener.js"
-
+import ExpensesChart from "./components/Expenses/ExpensesChart.js"
 const expenses = [
   {
     id:Math.random(),
@@ -65,9 +65,11 @@ const App=()=>{
   
   return (
     <div className="App">
-      {toggle==true && <AddExpense newExpense={appendExpense} open={opener}></AddExpense>}
-      {toggle==false && <FormOpener open={opener}></FormOpener>}
+      {toggle===true && <AddExpense newExpense={appendExpense} open={opener}></AddExpense>}
+      {toggle===false && <FormOpener open={opener}></FormOpener>}
+      
       <ExpenseFilter selected={filterYear}  changeFilter={dropdownYear}></ExpenseFilter>
+      <ExpensesChart expenses={filterExpenseList}></ExpensesChart>
       <FilteredList renderList={filterExpenseList}></FilteredList>
       {filterExpenseList.length===1 && <p style={{color:"white"}}>Only single Expense here. Please add more...</p>}
     </div>

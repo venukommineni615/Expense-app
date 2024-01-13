@@ -1,7 +1,8 @@
+import './FormOpener.css'
 const FormOpener=(props)=>{
     return(
         <div className="form-opener">
-            <button type="click" onClick={props.open}>Add Expense</button>
+            <button type="button" onClick={props.open}>Add Expense</button>
         </div>
     )
 }

@@ -1,0 +1,13 @@
+.form-opener{
+    background-color: #333;
+    margin: 1rem;
+    border-radius: 10px;
+    
+}
+.form-opener>button{
+    
+    background-color: purple;
+    color:white;
+    border: 1px solid white;
+    width: 100%;
+}

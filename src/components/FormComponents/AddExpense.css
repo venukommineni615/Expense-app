@@ -38,7 +38,7 @@
     border-radius: 0.5rem;
   }
   
-  button[type="submit"] {
+  button[type="submit"]{
     width:fit-content;
     margin: auto;
     grid-column: span 2; 
@@ -50,8 +50,22 @@
     border-radius: 0.5rem;
   }
   
-  button[type="submit"]:hover {
+  button[type="submit"]:hover,button[type="button"]:hover {
     background-color: #640352;
+  }
+  button[type="button"]{
+    width:fit-content;
+    margin: auto;
+    grid-column: span 2; 
+    padding: 10px;
+    background-color: rgb(241, 240, 241);
+    color:black;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+  }
+  button[type="button"]:hover{
+    background-color: white;
   }
   
   
